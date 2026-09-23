@@ -2,7 +2,7 @@
 :root {
     /* LIGHT MODE BACKGROUND & COLORS */
     /* Replace 'light-sky.jpg' with your actual light background image name */
-    --bg-image: url('ChatGPT\ Image\ Sep\ 23\,\ 2026\,\ 10_03_49\ PM.png'); 
+    --bg-image: url('light.png'); 
     --bg-overlay: rgba(255, 255, 255, 0.1); 
     
     --glass-bg: rgba(255, 255, 255, 0.75);
@@ -20,7 +20,7 @@
 [data-theme="dark"] {
     /* DARK MODE BACKGROUND & COLORS */
     /* Replace 'image_gHMyd1.png' with your dark background image name */
-    --bg-image: url('0a8b13bb-718b-4a82-a5e6-5e11a10b2390.png'); 
+    --bg-image: url('dark.png'); 
     --bg-overlay: rgba(0, 0, 0, 0.35); 
     
     --glass-bg: rgba(15, 23, 42, 0.65);
