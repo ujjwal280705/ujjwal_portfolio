@@ -1,0 +1,358 @@
+/* --- CSS Theme Variables --- */
+:root {
+    /* LIGHT MODE BACKGROUND & COLORS */
+    /* Replace 'light-sky.jpg' with your actual light background image name */
+    --bg-image: url('ChatGPT\ Image\ Sep\ 23\,\ 2026\,\ 10_03_49\ PM.png'); 
+    --bg-overlay: rgba(255, 255, 255, 0.1); 
+    
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #334155;
+    --accent-blue: #0369a1;
+    --shadow-color: rgba(15, 23, 42, 0.08);
+    --tag-bg: rgba(255, 255, 255, 0.9);
+    --tag-border: rgba(226, 232, 240, 0.8);
+    --fallback-bg: #e2e8f0;
+}
+
+[data-theme="dark"] {
+    /* DARK MODE BACKGROUND & COLORS */
+    /* Replace 'image_gHMyd1.png' with your dark background image name */
+    --bg-image: url('0a8b13bb-718b-4a82-a5e6-5e11a10b2390.png'); 
+    --bg-overlay: rgba(0, 0, 0, 0.35); 
+    
+    --glass-bg: rgba(15, 23, 42, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #cbd5e1;
+    --accent-blue: #38bdf8;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --tag-bg: rgba(30, 41, 59, 0.8);
+    --tag-border: rgba(255, 255, 255, 0.1);
+    --fallback-bg: #030712;
+}
+
+/* Global Document Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* transition makes the background image and glass swap smoothly */
+    transition: background-image 0.4s ease, background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+    /* Dynamically pulls the image variable depending on active theme mode */
+    background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), var(--bg-image); 
+    background-repeat: no-repeat; 
+    background-position: center top; 
+    background-size: cover; 
+    background-attachment: fixed; 
+    background-color: var(--fallback-bg); 
+}
+
+main {
+    flex: 1; /* Pushes the footer cleanly down to the bottom wall of the viewport */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Top Bar Styling --- */
+.top-bar {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    z-index: 10;
+    background: var(--glass-bg); 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); 
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 2px 15px var(--shadow-color);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.logo:hover {
+    color: var(--accent-blue);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    color: var(--text-secondary);
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    transform: translateY(-2px);
+}
+
+.social-links a:hover .fa-linkedin-in { color: #0077b5; }
+.social-links a:hover .fa-envelope { color: #ea4335; }
+.social-links a:hover .fa-instagram { color: #e1306c; }
+
+/* Interactive Theme Toggle Switch Button Component */
+.theme-btn {
+    background: var(--tag-bg);
+    border: 1px solid var(--tag-border);
+    color: var(--text-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.theme-btn:hover {
+    transform: scale(1.05);
+    color: var(--accent-blue);
+}
+
+/* --- About Section Styling --- */
+.about-section {
+    padding: 60px 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.about-container {
+    max-width: 800px;
+    width: 100%;
+    padding: 40px;
+    border-radius: 24px;
+    background: var(--glass-bg); 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); 
+    border: 1px solid var(--glass-border); 
+    box-shadow: 0 8px 32px 0 var(--shadow-color);
+}
+
+.about-hero-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    border-bottom: 1px solid var(--glass-border); 
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+
+.hero-left {
+    flex: 1;
+    text-align: left;
+}
+
+.about-tagline {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent-blue);
+    margin-bottom: 6px;
+}
+
+.hero-left h2 {
+    font-size: 24px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.dev-name {
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.hero-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profile-image-frame {
+    width: 130px;
+    height: 130px;
+    border-radius: 40px;
+    overflow: hidden;
+    border: 4px solid var(--tag-bg);
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-content p {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.about-content strong {
+    color: var(--text-primary);
+}
+
+.skills-title {
+    font-size: 18px;
+    color: var(--text-primary);
+    margin: 36px 0 18px 0;
+    font-weight: 700;
+    text-align: center;
+}
+
+.skills-list {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.skill-tag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: var(--tag-bg);
+    border: 1px solid var(--tag-border);
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.skill-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px var(--shadow-color);
+}
+
+.skill-tag .fa-html5 { color: #e34c26; }
+.skill-tag .fa-css3-alt { color: #264de4; }
+.skill-tag .fa-square-js { color: #f7df1e; }
+
+/* --- Bottom Bar / Footer Styling --- */
+.bottom-bar {
+    width: 100%;
+    min-height: 70px;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 20px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--glass-border);
+    box-shadow: 0 -4px 20px var(--shadow-color);
+}
+
+.footer-left p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.footer-right a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.footer-right a i {
+    font-size: 18px;
+}
+
+.footer-right a:hover {
+    transform: translateY(-2px);
+}
+
+.footer-right a:hover[aria-label="Email"] { color: #ea4335; }
+.footer-right a:hover[aria-label="Instagram"] { color: #e1306c; }
+.footer-right a:hover[aria-label="LinkedIn"] { color: #0077b5; }
+
+/* --- RESPONSIVE MOBILE BREAKPOINTS --- */
+@media (max-width: 650px) {
+    .top-bar {
+        padding: 0 20px;
+    }
+    .about-section {
+        padding: 40px 15px;
+    }
+    .about-container {
+        padding: 25px 20px;
+    }
+    .about-hero-grid {
+        flex-direction: column-reverse; 
+        text-align: center;
+        gap: 20px;
+    }
+    .hero-left {
+        text-align: center;
+    }
+    .hero-right {
+        justify-content: center;
+    }
+    .dev-name {
+        font-size: 32px;
+    }
+    .bottom-bar {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 20px;
+    }
+    .footer-right {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
